@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'contact' => 'static_pages#contact'
   get 'signup'  => 'users#new'
   get 'login' => 'sessions#new'
-   post   'login'   => 'sessions#create'
+  post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
+  resources :account_activations, only: [:edit]
+  resources :microposts,          only: [:create, :destroy]
 end
